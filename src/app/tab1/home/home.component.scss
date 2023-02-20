@@ -1,0 +1,15 @@
+
+.card-partidos {
+    background-color: var(--ion-color-opaque);
+    //background-color: antiquewhite;
+    border-radius: 15px;
+    .equipo {
+        font-size: 1.4em;
+    }
+
+    .btn-apuesta{
+        --background: var(--ion-color-kiwi);
+        font-size: 1.1em;
+        letter-spacing: 1px;
+    }
+}

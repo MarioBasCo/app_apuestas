@@ -1,0 +1,4 @@
+<ion-content class="bg-auth">
+  <app-signin (cambioVista)="mostrar = $event" [style.display]="mostrar ? 'none' : 'block'"></app-signin>
+  <app-signup (cambioVista)="mostrar = $event" [style.display]="!mostrar ? 'none' : 'block'"></app-signup>
+</ion-content>

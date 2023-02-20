@@ -1,0 +1,62 @@
+.bg-auth {
+    --background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("./../../assets/11752.jpg") no-repeat center center / cover;
+}
+
+.card-section {
+    height: 64vh;
+    width: 100%;
+    max-width: 500px;
+    background: rgba(var(--ion-color-carbon-rgb), 0.45);
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    margin: auto;
+    border-top-left-radius: 46px;
+    border-top-right-radius: 46px;
+
+    .heading {
+        margin-top: 20px;
+        color: var(--ion-color-bone);
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: bolder;
+            p {
+                margin-top: 20px;
+                font-size: 1rem;   
+            }
+        }
+    }
+
+    .card-form {
+        ion-item {
+            --border-radius: 10px;
+        }
+
+        /* ion-item::part(native) {
+            padding-left: 0;
+        } */
+
+        .btn-card {
+            --background: var(--ion-color-kiwi);
+            font-weight: bolder;
+            text-transform: capitalize;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            &::part(native){
+                border-radius: 10px !important;
+            }
+        }
+
+        .btn-signup{
+            font-weight: bolder;
+            text-transform: capitalize;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            &::part(native){
+                border-radius: 10px !important;
+            }
+        }
+    }
+}

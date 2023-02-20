@@ -1,17 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="transparent">
     <ion-title>
-      Tab 3
+      Mi Perfil
     </ion-title>
+    <ion-buttons slot="end" (click)="presentPopover($event)">
+      <ion-icon class="btn-menu" name="ellipsis-vertical"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container-profile">
+    
+    <form>
+      <div class="icon-person">
+        <ion-icon name="person"></ion-icon>
+      </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      <ion-item color="transparent">
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input placeholder="micorreo@micorreo.com"></ion-input>
+      </ion-item>
+  
+      <ion-item color="transparent">
+        <ion-label position="floating">CI</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+  
+      <ion-item color="transparent">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+  
+      <ion-item color="transparent">
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+  
+      <ion-item color="transparent">
+        <ion-label position="floating">Celular</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+  
+      <ion-item color="transparent">
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <div class="ion-text-end ion-margin-top">
+        <ion-button color="carbon"><ion-icon slot="start" name="create"></ion-icon>Editar</ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>

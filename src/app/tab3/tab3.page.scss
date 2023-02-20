@@ -1,0 +1,29 @@
+ion-content {
+    --background: var(--ion-color-bone) !important;
+}
+
+.btn-menu {
+    margin-right: 10px;
+    font-size: 1.33em;
+}
+
+.container-profile {
+    height: 90%;
+    display: grid;
+    place-items: center;
+
+    form {
+        width: 90%;
+        .icon-person {
+            text-align: center;
+            font-size: 5rem;
+            color: var(--ion-color-kiwi);
+            
+            ion-icon {
+                border: 2px solid var(--ion-color-carbon);
+                padding: .15em;
+                border-radius: 50%;
+            }
+        }
+    }
+}
