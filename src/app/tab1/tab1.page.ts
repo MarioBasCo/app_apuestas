@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { StorageService } from '../servicios/storage.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,7 +9,17 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
   segment: string = 'home';
-  
-  constructor() {}
+  id_perfil: number = 0;
 
+  constructor(
+    private router: Router,
+    private serStorage: StorageService) {
+    const usr = this.serStorage.get('user');
+    this.id_perfil = usr.id_perfil;
+  }
+
+  cerrarSesion(){
+    this.serStorage.clear();
+    this.router.navigateByUrl('/auth', { replaceUrl: true });
+  }
 }

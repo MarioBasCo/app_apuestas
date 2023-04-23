@@ -1,31 +1,35 @@
-<ion-grid class="card-partidos ion-margin">
-  <ion-row class="ion-justify-content-center ion-padding-top">
-    <ion-col class="ion-text-center">
-      <ion-badge color="carbon">Amistoso</ion-badge>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="5" class="ion-text-center equipo">
-      Ecuador
-    </ion-col>
-    <ion-col size="auto" class="ion-align-self-center">
-      vs
-    </ion-col>
-    <ion-col size="5" class="ion-text-center equipo">
-      Alemania
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="auto">
-      📆 Fecha 
-    </ion-col>
-    <ion-col size="auto">
-      ⏲
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-margin-top">
-    <ion-col class="ion-text-end">
-      <ion-button class="btn-apuesta" mode="ios">Apostar</ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<div class="ion-padding">
+  <div class="ion-margin-top">
+    <ion-grid *ngFor="let partido of partidos" class="card-partidos ion-margin-bottom">
+      <ion-row class="ion-justify-content-center ion-padding-top">
+        <ion-col class="ion-text-center">
+          <ion-badge color="carbon">{{partido.competicion}}</ion-badge>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="5" class="ion-text-center equipo">
+          {{partido.equipo_local}}
+        </ion-col>
+        <ion-col size="auto" class="ion-align-self-center">
+          vs
+        </ion-col>
+        <ion-col size="5" class="ion-text-center equipo">
+          {{partido.equipo_visitante}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="auto">
+          📆 {{partido.fecha}}
+        </ion-col>
+        <ion-col size="auto">
+          ⏲ {{partido.hora}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-top">
+        <ion-col class="ion-text-end">
+          <ion-button class="btn-apuesta" mode="ios" color="kiwi" (click)="abrirModal(partido)">Apostar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>

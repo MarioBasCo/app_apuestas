@@ -6,6 +6,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-card *ngFor="let apuesta of apuestas" color="opaque" class="ion-margin-bottom">
+    <ion-card-content>
+      <ion-text>
+        <h2 class="ion-text-center">{{apuesta.equipo_local}} <span>vs</span> {{apuesta.equipo_visitante}} </h2>
+        <p class="ion-text-center">
+          <ion-chip color="kiwi">
+            <ion-icon name="football"></ion-icon>
+            <ion-label>{{apuesta.competicion}}</ion-label>
+          </ion-chip>
+        </p>
+        <p>
+          <ion-icon name="calendar" color="carbon" class="ion-margin-end"></ion-icon>{{apuesta.fecha | date: 'dd/MM/yyyy'}}
+        </p>
+        <p>
+          <ion-icon name="time" color="carbon" class="ion-margin-end"></ion-icon>{{apuesta.hora}}
+        </p>
+        <p>
+          <b>Prónostico: </b> <span *ngIf="!apuesta.id_ganador">Empate</span><span *ngIf="apuesta.id_ganador ==apuesta.id_local">🏆 {{apuesta.equipo_local}}</span><span *ngIf="apuesta.id_ganador ==apuesta.id_visitante">🏆 {{apuesta.equipo_visitante}}</span>
+        </p>
+      </ion-text>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-wrap">Monto base: {{apuesta.monto_inv | currency: 'USD'}}</ion-col>
+          <ion-col class="ion-text-wrap">Valor Apostado: {{apuesta.monto_apostado | currency: 'USD'}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">Tipo Apuesta: {{apuesta.detalle_tipo}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center" *ngIf="apuesta.id_tipo_apuesta==1">
+            <ion-text><h3><b>TOTAL A GANAR: {{apuesta.monto_inv*apuesta.monto_apostado | currency: 'USD'}}</b></h3></ion-text>
+          </ion-col>
 
+          <ion-col class="ion-text-center" *ngIf="apuesta.id_tipo_apuesta==2">
+            <ion-text><h3><b>TOTAL A GANAR: {{apuesta.monto_inv*apuesta.monto_apostado*2 | currency: 'USD'}}</b></h3></ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

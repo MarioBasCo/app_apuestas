@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.stip.apuestas.app',
   appName: 'apuestas',
   webDir: 'www',
   bundledWebRuntime: false

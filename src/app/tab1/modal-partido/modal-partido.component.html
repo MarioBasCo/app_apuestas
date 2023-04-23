@@ -5,15 +5,47 @@
 </ion-header>
 
 <ion-content color="bone" class="ion-padding">
-  <p>
-    modal-partido works!
-  </p>
+  <form [formGroup]="formPartido" (ngSubmit)="guardar()">
+    <ion-item color="transparent">
+      <ion-select interface="action-sheet" placeholder="Escoje el local" formControlName="id_local">
+        <ion-select-option [value]="local.id" *ngFor="let local of equipos">{{local.nombre_equipo}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item color="transparent">
+      <ion-select interface="action-sheet" placeholder="Escoje el visitante" formControlName="id_visitante">
+        <ion-select-option [value]="visitante.id" *ngFor="let visitante of equipos">{{visitante.nombre_equipo}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item color="transparent">
+      <ion-select interface="action-sheet" placeholder="Escoja la competición" formControlName="id_competicion">
+        <ion-select-option [value]="compe.id" *ngFor="let compe of competiciones">{{compe.competicion}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item color="transparent">
+      <ion-label>Fecha</ion-label>
+      <ion-input type="date" slot="end" formControlName="fecha"></ion-input>
+    </ion-item>
+
+    <ion-item color="transparent">
+      <ion-label>Hora</ion-label>
+      <ion-input type="time" slot="end" formControlName="hora"></ion-input>
+    </ion-item>
+
+    <ion-row class="ion-justify-content-center ion-margin-top">
+      <ion-col class="ion-text-center">
+        <ion-button type="submit" color="carbon" expand="block" [disabled]="formPartido.invalid">Guardar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>
 
 <ion-footer class="ion-no-border">
   <ion-row class="ion-justify-content-center">
     <ion-col class="ion-text-center">
-      <ion-button color="carbon" expand="block">Guardar</ion-button>
+      <!-- <ion-button color="carbon" expand="block">Guardar</ion-button> -->
     </ion-col>
     <ion-col class="ion-text-center">
       <ion-button color="carbon" expand="block" fill="outline" (click)="cerrar()">Cancelar</ion-button>
