@@ -1,3 +1,51 @@
-<p>
-  modal-apuesta works!
-</p>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="bone">
+    <ion-title class="ion-text-center">💰 Apuesta por el mejor 💰</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="bone" class="ion-padding">
+  <form [formGroup]="formApuesta" (ngSubmit)="guardar()">
+    <ion-item color="transparent">
+      <ion-select interface="popover" placeholder="Escoje el ganador/resultado" formControlName="id_apuesta">
+        <ion-select-option [value]="detalle.id" *ngFor="let detalle of detalles">{{detalle.nombre}} ({{detalle.monto_inv | currency: 'USD'}})</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item color="transparent">
+      <ion-select interface="popover" placeholder="Escoje el tipo de apuesta" formControlName="id_tipo_apuesta">
+        <ion-select-option [value]="tipo.id" *ngFor="let tipo of tipos">{{tipo.detalle_tipo}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item color="transparent">
+      <ion-select interface="popover" placeholder="Escoje tu cuenta de bco" formControlName="id_cuenta_bco">
+        <ion-select-option [value]="banco.id" *ngFor="let banco of bancos">{{banco.num_cta}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item color="transparent">
+      <ion-label>
+        Monto a apostar
+      </ion-label>
+      <ion-input type="number" placeholder="1.00" class="ion-text-end" formControlName="monto_apostado"></ion-input>
+    </ion-item>
+
+    <ion-row class="ion-justify-content-center ion-margin-top">
+      <ion-col class="ion-text-center">
+        <ion-button type="submit" color="carbon" expand="block" [disabled]="formApuesta.invalid">Guardar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-text-center">
+      <!-- <ion-button color="carbon" expand="block">Guardar</ion-button> -->
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <ion-button color="carbon" expand="block" fill="outline" (click)="cerrar()">Cancelar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

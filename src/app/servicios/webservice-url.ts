@@ -1,0 +1,1 @@
+export const webservice: string = "http://apuestas.orgfree.com";

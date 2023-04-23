@@ -3,12 +3,18 @@
     <ion-title>
       Apuesta y gana
     </ion-title>
+    <ion-buttons (click)="cerrarSesion()" slot="end" class="ion-margin-end">
+      <div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+        <ion-icon name="exit" size="large" color="kiwi"></ion-icon>
+        <small>Salir</small>
+      </div>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <ion-segment [scrollable]="true" value="home">
+  <ion-segment [scrollable]="true" value="home" color="kiwi" *ngIf="id_perfil==2">
     <ion-segment-button value="home" (click)="segment = 'home'">
       <ion-icon name="home"></ion-icon>
     </ion-segment-button>

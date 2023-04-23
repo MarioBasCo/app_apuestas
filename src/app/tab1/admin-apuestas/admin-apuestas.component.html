@@ -2,4 +2,49 @@
   <div class="ion-text-center">
     <h3>Apuestas</h3>
   </div>
+
+  <div class="ion-margin-vertical">
+    <ion-item color="transparent">
+      <ion-select interface="action-sheet" placeholder="Escoja el partido" (ionChange)="elegirPartido($event)">
+        <ion-select-option [value]="partido" *ngFor="let partido of partidos">
+          {{partido.equipo_local}} vs {{partido.equipo_visitante}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div *ngIf="mostrarForm">
+    <form [formGroup]="formApuesta" (ngSubmit)="guardar()">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">Resultado</ion-col>
+          <ion-col class="ion-text-center">Monto Base</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label>{{empate.nombre}}</ion-label></ion-col>
+          <ion-col>
+            <ion-input class="ion-text-end" type="number" placeholder="1.00" formControlName="monto_empate"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col><ion-label>{{local.nombre}}</ion-label></ion-col>
+          <ion-col>
+            <ion-input class="ion-text-end" type="number" placeholder="1.00" formControlName="monto_local"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col><ion-label>{{visitante.nombre}}</ion-label></ion-col>
+          <ion-col>
+            <ion-input class="ion-text-end" type="number" placeholder="1.00" formControlName="monto_visitante"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button type="submit" color="carbon" expand="block" [disabled]="formApuesta.invalid">
+        Guardar
+      </ion-button>
+    </form>
+  </div>
 </div>

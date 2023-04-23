@@ -6,26 +6,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item color="transparent">
-    <ion-select interface="popover" placeholder="Select fruit">
-      <ion-select-option value="apples">Apples</ion-select-option>
-      <ion-select-option value="oranges">Oranges</ion-select-option>
-      <ion-select-option value="bananas">Bananas</ion-select-option>
-    </ion-select>
-  </ion-item>
+<ion-content class="ion-padding">
+  <fieldset>
+    <legend>Nueva Cuenta</legend>
+  
+    <form [formGroup]="formCta" (ngSubmit)="guardar()">
+      <ion-item color="transparent" lines="none">
+        <ion-select interface="popover" placeholder="Seleccione un Banco" formControlName="id_banco">
+          <ion-select-option [value]="bco.id" *ngFor="let bco of bancos">{{bco.nombre_bco}}</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-  <ion-item color="transparent">
-    <ion-select interface="popover" placeholder="Select fruit">
-      <ion-select-option value="apples">Apples</ion-select-option>
-      <ion-select-option value="oranges">Oranges</ion-select-option>
-      <ion-select-option value="bananas">Bananas</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item color="transparent">
-    <ion-input placeholder="Número de la cuenta"></ion-input>
-  </ion-item>
+      <ion-item color="transparent" lines="none">
+        <ion-select interface="popover" placeholder="Seleccione el tipo de cuenta" formControlName="id_tipo_cta">
+          <ion-select-option [value]="tipo.id" *ngFor="let tipo of tiposCtas">{{tipo.detalle_cta}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item color="transparent" lines="none">
+        <ion-input placeholder="Número de la cuenta" formControlName="num_cta"></ion-input>
+      </ion-item>
+  
+      <div class="ion-margin-top">
+        <ion-button type="submit" color="carbon" expand="block" [disabled]="formCta.invalid">Guardar</ion-button>
+      </div>
+    </form>
+    
+  </fieldset>
 </ion-content>
 
 <ion-footer class="ion-no-border">

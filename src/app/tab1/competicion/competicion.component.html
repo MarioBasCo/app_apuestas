@@ -6,4 +6,17 @@
   <div class="ion-text-end">
     <ion-button (click)="nuevo()" color="carbon">Nueva</ion-button>
   </div>
+
+  <div class="ion-margin-top">
+    <ion-grid fixed="true">
+      <ion-row>
+        <ion-col size="4"><b>ID</b></ion-col>
+        <ion-col class="ion-text-center"><b>NOMBRE</b></ion-col>
+      </ion-row>
+      <ion-row *ngFor="let compe of competiciones; index as i">
+        <ion-col size="4">{{i+1}}</ion-col>
+        <ion-col>{{compe.competicion}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </div>

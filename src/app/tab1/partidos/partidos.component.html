@@ -6,4 +6,27 @@
   <div class="ion-text-end">
     <ion-button (click)="nuevo()" color="carbon">Nuevo</ion-button>
   </div>
+
+  <div class="ion-margin-top">
+
+    <ion-card *ngFor="let partido of partidos" color="opaque" class="ion-margin-bottom">
+      <ion-card-content>
+        <ion-text>
+          <h2 class="ion-text-center">{{partido.equipo_local}} <span>vs</span> {{partido.equipo_visitante}} </h2>
+          <p class="ion-text-center">
+            <ion-chip color="kiwi">
+              <ion-icon name="football"></ion-icon>
+              <ion-label>{{partido.competicion}}</ion-label>
+            </ion-chip>
+          </p>
+          <p>
+            <ion-icon name="calendar" color="carbon" class="ion-margin-end"></ion-icon>{{partido.fecha | date: 'dd/MM/yyyy'}}
+          </p>
+          <p>
+            <ion-icon name="time" color="carbon" class="ion-margin-end"></ion-icon>{{partido.hora}}
+          </p>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </div>
